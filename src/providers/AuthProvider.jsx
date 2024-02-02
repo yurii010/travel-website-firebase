@@ -28,15 +28,11 @@ const AuthProvider = (props) => {
   useEffect(() => {
     if (myAuth) {
       let unsubscribe = onAuthStateChanged(myAuth, (user) => {
-        // if user is null, then we force them to login
-        console.log('onAuthStateChanged(): got user', user);
         if (user) {
           setUser(user);
         }
-
         setAuthLoading(false);
       });
-
       return unsubscribe;
     }
   }, [myAuth]);
@@ -107,10 +103,8 @@ const AuthProvider = (props) => {
         password
       );
     } catch (ex) {
-      console.error(`registerFunction() failed with: ${ex.message}`);
       setAuthErrorMessages([
-        ex.message,
-        'Did you enable the Email Provider in Firebase Auth?',
+        console.log(ex.message)
       ]);
       return false;
     }

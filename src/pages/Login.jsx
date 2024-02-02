@@ -16,15 +16,17 @@ export const Login = () => {
 
   const toggleShowRegisterScreen = () => {
     setShowRegisterForm((currVal) => !currVal);
+    setEmail('');
+    setPassword('');
+    setErrorMessage(null);
   };
 
   const handleButtonClick = async () => {
     setLoginRunning(true);
     let success = await login(email, password);
-    console.log("login result:", success)
     setLoginRunning(false);
     if (!success) {
-      setErrorMessage('Login failed!');
+      setErrorMessage("Oops! Something went wrong during registration.");
     };
   };
   useEffect(() => {
@@ -70,16 +72,8 @@ export const Login = () => {
                 <button className="button-in-form" onClick={handleButtonClick}>
                   Login
                 </button>
-                {(errorMessage || authErrorMessages) && (
-                  <>
-                    <br />
-                    <h3 style={{ color: 'red' }}>{errorMessage}</h3>
-                    {authErrorMessages?.map((errorLine, idx) => (
-                      <h4 key={`errmsg-${idx}`} style={{ color: 'red' }}>
-                        {errorLine}
-                      </h4>
-                    ))}
-                  </>
+                {errorMessage && (
+                  <p className="error-message pt-4">{errorMessage}</p>
                 )}
               </div>
             </div>

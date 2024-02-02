@@ -26,7 +26,7 @@ li {
 
 /* Nav */
 
-.nav-item > .nav-link {
+.nav-item>.nav-link {
     color: white !important;
     font-size: 16px;
     font-style: normal;
@@ -384,12 +384,6 @@ li {
     line-height: 124.5%;
 }
 
-/* About us */
-
-.about-us {
-    background-color: #ECF1F0;
-}
-
 /* Email */
 
 .email-content {
@@ -576,6 +570,7 @@ footer {
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
 }
 
 .user-button {
@@ -596,7 +591,31 @@ footer {
     margin-bottom: 15px;
 }
 
+.response-div {
+    width: 400px;
+    word-wrap: break-word;
+    box-shadow: 3px 3px 10px 0px rgba(0, 0, 0, 0.08);
+    padding: 10px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+}
+
+.response-title {
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.response-text {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 25px;
+}
+
 /* Else */
+
+.error-message{
+    padding-bottom: 0px;
+}
 
 .padding-title {
     padding: 50px 0px;
@@ -869,6 +888,13 @@ footer {
 
     .copyright {
         padding-top: 20px;
+    }
+
+    #response-text-area {
+        width: 300px;
+    }
+    .response-div{
+        width: 300px;
     }
 }
 

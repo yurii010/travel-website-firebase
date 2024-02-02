@@ -16,11 +16,10 @@ export const Register = ({ toggleShowRegisterScreen }) => {
     if (theDisplayName?.length <= 0) {
       theDisplayName = 'NO DISPLAY NAME PROVIDED 😟';
     }
-
     let success = await register(email, password, theDisplayName);
-    setRegistrationRunning(false);
     if (!success) {
-      setErrorMessage('Registration failed!');
+      setErrorMessage("Oops! Something went wrong during registration.");
+      setRegistrationRunning(false);
     }
   };
 
@@ -65,6 +64,9 @@ export const Register = ({ toggleShowRegisterScreen }) => {
             <button className="button-in-form" onClick={handleButtonClick}>
               Register
             </button>
+            {errorMessage && (
+              <p className="error-message pt-4">{errorMessage}</p>
+            )}
           </div>
         </div>
       </div>
